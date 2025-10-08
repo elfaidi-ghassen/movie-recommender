@@ -22,11 +22,6 @@ def get_movie_title(movies_pd, id):
     return movies_pd.loc[movies_pd["movieId"] == id, "title"].values[0]
     
 
-# user_ratings = load_user_ratings()
-# Y = np.c_[user_ratings, Y]
-# R = np.c_[(user_ratings != 0).astype(int), R]
-# user_count += 1
-
 # normalize the dataset
 Y_norm, Ymean = normalizeRatings(Y, R)
 
@@ -37,3 +32,6 @@ lambda_ = 1
 
 model_path = "model_params.npz"
 train_save(R, Y_norm, Ymean, movie_count, user_count, features_count, iterations, lambda_, model_path)
+
+
+
