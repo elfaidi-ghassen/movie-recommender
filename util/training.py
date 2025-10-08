@@ -89,9 +89,7 @@ def train_save(R, Y, Ymean, movie_count, user_count, features_count, iterations,
     b = tf.Variable(tf.random.normal((1, user_count), dtype=tf.float64), name="b")
 
     optimizer = keras.optimizers.Adam(learning_rate=0.1)
-    iterations = 2000
-    lambda_ = 1
-    W, X, b = train(X, W, b, Y, R, optimizer, iterations, lambda_, debug=True)
+    X, W, b = train(X, W, b, Y, R, optimizer, iterations, lambda_, debug=True)
     np.savez(path, 
          W=W.numpy(), 
          X=X.numpy(), 
