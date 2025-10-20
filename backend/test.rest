@@ -1,0 +1,4 @@
+POST http://127.0.0.1:5000/api/predict
+Content-Type: application/json
+
+[5498, 1274, 134853, 26662, 5971, 31658, 26743, 2176, 2019, 6713, 109633]
