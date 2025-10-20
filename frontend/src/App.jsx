@@ -7,6 +7,7 @@ function App() {
   let [searchString, setSearchString] = useState("")
   let [searchMovies, setSearchMovies] = useState([])
   let [selectedMovies, setSelectedMovies] = useState([])
+  let [recommendedMovies, setrecommendedMovies] = useState([])
 
   return (
     <>
@@ -26,6 +27,17 @@ function App() {
           text="Predict"/>
       </div>
       <div>
+        <p>Recommended Movies:</p>
+        {
+          recommendedMovies.length === 0
+          ? "please select movies"
+          : <MovieList
+            className="recommended-movies"
+            movies={recommendedMovies}
+            onMovieClick={() => null}
+            />
+        }
+
         <p>Selected Movies:</p>
         <MovieList
           className="selected-movies"
@@ -64,8 +76,8 @@ function App() {
     moviesService
     .predict(moviesIds)
     .then(response => {
-      // setPredictedMovies(response.data)
-      console.log(response)
+      // console.log(response.data)
+      setrecommendedMovies(response.data.prediction)
     })
   }
 

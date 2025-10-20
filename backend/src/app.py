@@ -20,9 +20,8 @@ def get_data():
     data = request.get_json()
     recommendations = [{"id": id, "title": title, "imdb_id":imdb_id} for id, title, imdb_id in predict(data)]
     # print(recommendations)
-    
+    recommendations = list(map(add_image, recommendations))
     return jsonify({"prediction": recommendations})
-    # return jsonify({"prediction": [{"id": 72, "imdb_id": '0113537', "title": 'Kicking and Screaming (1995)'}]})
 
 @app.route("/api/search/<q>", methods=["GET"])
 def search(q):

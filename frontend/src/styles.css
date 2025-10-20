@@ -30,8 +30,10 @@ button {
     width: 120px;
     border-radius: 8px;
 }
+.recommended-movies,
 .selected-movies,
 .search-movies {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px
 }
